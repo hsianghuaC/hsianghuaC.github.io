@@ -1,63 +1,295 @@
 <!DOCTYPE html>
-<html class="nojs html css_verticalspacer" lang="zh-TW">
- <head>
-
-  <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
-  <meta name="generator" content="2018.0.0.379"/>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-  <script type="text/javascript">
-   // Update the 'nojs'/'js' class on the html node
-document.documentElement.className = document.documentElement.className.replace(/\bnojs\b/g, 'js');
-
-// Check that all required assets are uploaded and up-to-date
-if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required":["museutils.js", "museconfig.js", "jquery.watch.js", "require.js", "index.css"], "outOfDate":[]};
-</script>
-  
-  <title>首頁</title>
-  <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="css/site_global.css?crc=444006867"/>
-  <link rel="stylesheet" type="text/css" href="css/index.css?crc=4079236376" id="pagesheet"/>
-   </head>
- <body>
-
-  <div class="clearfix borderbox" id="page"><!-- group -->
-   <div class="clearfix grpelem" id="pu135-6"><!-- group -->
-    <div class="clearfix grpelem" id="u135-6" data-muse-temp-textContainer-sizePolicy="true" data-muse-temp-textContainer-pinning="true"><!-- content -->
-     <p id="u135-2">HSIANG-HUA CHANG</p>
-     <p id="u135-4">PORTFOLIO</p>
+  <title>Video Annotation Platform</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #e8f0fe; display: flex; flex-direction: column; align-items: center; }
+    .container { display: flex; gap: 40px; width: 100%; max-width: 1200px; }
+    .video-panel, .form-panel { flex: 1; background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+    video { width: 100%; max-width: 400px; border-radius: 10px; position: relative; z-index: 1; }
+    .progress-markers {
+      position: relative;
+      width: 100%;
+      height: 10px;
+      background: transparent;
+      margin-top: -12px;
+      z-index: 2;
+    }
+    .marker {
+      position: absolute;
+      top: 0;
+      width: 4px;
+      height: 10px;
+      background: #1a73e8;
+      border-radius: 2px;
+    }
+    .expression-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 10px; }
+    .expression-grid button { font-size: 20px; padding: 8px; cursor: pointer; border: 2px solid transparent; border-radius: 5px; }
+    .expression-grid button.selected { border: 2px solid #1a73e8; background-color: #d2e3fc; }
+    .keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+    .keywords label { margin-right: 10px; }
+    table { width: 100%; margin-top: 20px; border-collapse: collapse; background-color: #ffffff; }
+    th, td { border: 1px solid #ccc; padding: 6px; text-align: left; }
+    .btn-group { margin-top: 20px; display: flex; gap: 10px; }
+    canvas { border: 1px solid #ccc; background-color: #ffffff; margin-top: 10px; cursor: crosshair; }
+     
+  </style>
+</head>
+<body>
+  <h2 style="color: #1a73e8;">Video Annotation Platform</h2>
+  <div class="container">
+    <div class="video-panel">
+      <label for="videoSelect">Video:</label>
+      <select id="videoSelect">
+        <option value="mina01.mp4">mina01.mp4</option>
+        <option value="mina02.mp4">mina02.mp4</option>
+        <option value="mina03.mp4">mina03.mp4</option>
+        <option value="mina04.mp4">mina04.mp4</option>
+        <option value="mina05.mp4">mina05.mp4</option>
+      </select><br /><br />
+      <div style="position: relative;">
+        <video id="video" controls>
+          <source src="mina01.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="progress-markers" id="markerLayer"></div>
+      </div>
     </div>
-    <div class="grpelem" id="u138"><!-- simple frame --></div>
-    <div class="grpelem" id="u141"><!-- simple frame --></div>
-    <div class="grpelem" id="u144" data-mu-ie-matrix="progid:DXImageTransform.Microsoft.Matrix(M11=0,M12=1,M21=-1,M22=0,SizingMethod='auto expand')" data-mu-ie-matrix-dx="191" data-mu-ie-matrix-dy="-191"><!-- simple frame --></div>
-    <div class="grpelem" id="u147" data-mu-ie-matrix="progid:DXImageTransform.Microsoft.Matrix(M11=0,M12=1,M21=-1,M22=0,SizingMethod='auto expand')" data-mu-ie-matrix-dx="191" data-mu-ie-matrix-dy="-191"><!-- simple frame --></div>
-   </div>
-   <div class="verticalspacer" data-offset-top="544" data-content-above-spacer="537" data-content-below-spacer="61" data-sizePolicy="fixed" data-pintopage="page_fixedLeft"></div>
-   <a class="nonblock nontext clearfix grpelem" id="u154-4" href="dance.html" data-muse-temp-textContainer-sizePolicy="true" data-muse-temp-textContainer-pinning="true"><!-- content --><p>NEXT</p></a>
-  </div>
-  <!-- Other scripts -->
-  <script type="text/javascript">
-   // Decide weather to suppress missing file error or not based on preference setting
-var suppressMissingFileError = false
-</script>
-  <script type="text/javascript">
-   window.Muse.assets.check=function(d){if(!window.Muse.assets.checked){window.Muse.assets.checked=!0;var b={},c=function(a,b){if(window.getComputedStyle){var c=window.getComputedStyle(a,null);return c&&c.getPropertyValue(b)||c&&c[b]||""}if(document.documentElement.currentStyle)return(c=a.currentStyle)&&c[b]||a.style&&a.style[b]||"";return""},a=function(a){if(a.match(/^rgb/))return a=a.replace(/\s+/g,"").match(/([\d\,]+)/gi)[0].split(","),(parseInt(a[0])<<16)+(parseInt(a[1])<<8)+parseInt(a[2]);if(a.match(/^\#/))return parseInt(a.substr(1),
-16);return 0},g=function(g){for(var f=document.getElementsByTagName("link"),h=0;h<f.length;h++)if("text/css"==f[h].type){var i=(f[h].href||"").match(/\/?css\/([\w\-]+\.css)\?crc=(\d+)/);if(!i||!i[1]||!i[2])break;b[i[1]]=i[2]}f=document.createElement("div");f.className="version";f.style.cssText="display:none; width:1px; height:1px;";document.getElementsByTagName("body")[0].appendChild(f);for(h=0;h<Muse.assets.required.length;){var i=Muse.assets.required[h],l=i.match(/([\w\-\.]+)\.(\w+)$/),k=l&&l[1]?
-l[1]:null,l=l&&l[2]?l[2]:null;switch(l.toLowerCase()){case "css":k=k.replace(/\W/gi,"_").replace(/^([^a-z])/gi,"_$1");f.className+=" "+k;k=a(c(f,"color"));l=a(c(f,"backgroundColor"));k!=0||l!=0?(Muse.assets.required.splice(h,1),"undefined"!=typeof b[i]&&(k!=b[i]>>>24||l!=(b[i]&16777215))&&Muse.assets.outOfDate.push(i)):h++;f.className="version";break;case "js":h++;break;default:throw Error("Unsupported file type: "+l);}}d?d().jquery!="1.8.3"&&Muse.assets.outOfDate.push("jquery-1.8.3.min.js"):Muse.assets.required.push("jquery-1.8.3.min.js");
-f.parentNode.removeChild(f);if(Muse.assets.outOfDate.length||Muse.assets.required.length)f="伺服器上的某些檔案可能遺失或不正確。請清除瀏覽器快取後再試一次。若問題持續發生，請聯絡網站作者。",g&&Muse.assets.outOfDate.length&&(f+="\nOut of date: "+Muse.assets.outOfDate.join(",")),g&&Muse.assets.required.length&&(f+="\nMissing: "+Muse.assets.required.join(",")),suppressMissingFileError?(f+="\nUse SuppressMissingFileError key in AppPrefs.xml to show missing file error pop up.",console.log(f)):alert(f)};location&&location.search&&location.search.match&&location.search.match(/muse_debug/gi)?
-setTimeout(function(){g(!0)},5E3):g()}};
-var muse_init=function(){require.config({baseUrl:""});require(["jquery","museutils","whatinput","jquery.watch"],function(d){var $ = d;$(document).ready(function(){try{
-window.Muse.assets.check($);/* body */
-Muse.Utils.transformMarkupToFixBrowserProblemsPreInit();/* body */
-Muse.Utils.prepHyperlinks(true);/* body */
-Muse.Utils.makeButtonsVisibleAfterSettingMinWidth();/* body */
-Muse.Utils.fullPage('#page');/* 100% height page */
-Muse.Utils.showWidgetsWhenReady();/* body */
-Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
-}catch(b){if(b&&"function"==typeof b.notify?b.notify():Muse.Assert.fail("Error calling selector function: "+b),false)throw b;}})})};
 
+    <div class="form-panel">
+      <h3 style="color: #1a73e8;">Add Annotation</h3>
+      <div class="expression-grid" id="expressionGrid"></div><br /> 
+    <label>情緒維度（Valence-Arousal）：</label><br /> 
+    <canvas id="vaCanvas" width="200" height="200" style="margin-top: 4px;"></canvas>
+    <div id="vaText" style="margin-top: 4px;">(0, 0)</div>
+    <div style="font-size: 12px; color: gray; margin-top: 2px;">※ X 軸為 Valence（正負情感），Y 軸為 Arousal（激發程度）</div>
+
+    <br /> 
+    <label>關鍵字（Keywords）:</label><br />
+    <div class="keywords" id="keywords"></div><br /> 
+
+      <label for="textDesc">Text description:</label><br />
+      <textarea id="textDesc" rows="3" style="width: 100%;"></textarea><br /><br />
+
+      <div class="btn-group">
+        <button onclick="saveAnnotation()">Save</button>
+        <button onclick="downloadAnnotations()">Download JSON</button>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="color: #1a73e8;">Annotations</h3>
+  <table>
+    <thead>
+      <tr><th>Time</th><th>Expression</th><th>Valence-Arousal</th><th>Keywords</th><th>Description</th><th>Action</th></tr>
+    </thead>
+    <tbody id="annotationTable"></tbody>
+  </table>
+
+<script>
+const emotionCategories = {
+  "😃 喜悅": ["愉悅", "放鬆", "感染力", "笑容", "嘴角自然上揚", "眼睛微彎閃亮", "眉毛自然舒展", "臉頰略微上提"],
+  "😤 挑釁": ["自我膨脹感", "界線挑戰", "支配慾", "緊繃的自信", "單邊嘴角上挑", "眉毛挑起帶傲氣", "一側嘴角挑起", "凝視對方", "眉毛前傾集中", "眼神帶有壓迫感"],
+  "😢 憂鬱": ["壓抑", "失落", "目光下垂", "嘴唇緊閉略下彎", "眼神模糊不聚焦", "眉毛內縮"],
+  "😱 驚恐": ["情緒過載", "不確定感", "警戒反應", "慌張", "眼睛睜大", "眉毛高聳", "嘴巴張開停滯", "臉部肌肉僵住"],
+  "😐 思考": ["停頓", "內在轉化", "語句中止", "目光游移", "懸置感", "眉頭輕皺", "眼神往上或側方漂移", "嘴角略收", "臉部無明顯表情"],
+  "😎 自信": ["內在安定", "自我確定", "氣場強烈", "直視觀眾", "掌控感", "眼神堅定不閃躲", "嘴角微翹但穩定", "臉部肌肉有張力但不僵硬", "眉型清晰並對稱"],
+  "🤗 親切": ["微笑", "開放", "聲音溫柔", "接納姿態", "眼神交流", "眼睛略彎呈月牙狀", "嘴巴呈包覆式微笑", "臉頰溫柔放鬆", "眉尾略微上揚", "整體表情柔軟無攻擊性"],
+  "😇 溫柔": ["呵護", "情感流動", "柔和包覆", "含蓄表達", "溫度感", "眼神有包容感", "微笑不誇張但真誠", "臉部邊緣輪廓放鬆", "嘴型圓潤不尖銳"],
+  "🧐 懷疑": ["不信任感", "眉頭皺起", "內部抗拒", "自我質疑", "一邊眉毛上挑", "眼睛微瞇", "嘴角略斜", "臉部呈現審視感", "嘴唇略有緊閉"],
+  "😔 壓抑": ["情緒壓制", "壓力內潰", "避免目光", "隱忍", "話語保留", "臉部略帶緊繃", "嘴角微微下彎", "眉毛下壓聚攏", "臉部肌肉壓住動作傾向"],
+  "🥳 狂喜": ["聲音高漲", "動作大幅度", "節奏快速", "語言跳躍", "無拘束", "嘴巴張大甚至露齒笑", "眼神強烈放光", "眉毛高舉", "臉頰拉高"],
+  "😡 憤怒": ["眉頭緊鎖", "語速快", "語氣強烈", "情緒緊繃", "眼神銳利集中", "嘴唇緊閉或顫抖", "鼻翼擴張", "眉心緊壓"],
+  //"😶 沉默": ["無語", "張力內隱", "僵直", "表情空白", "停頓延長", "臉部幾乎沒有表情變化", "眼神固定不動", "嘴角無波動", "臉部肌肉呈中性鬆弛", "整體表情如被凍結"]
+};
+
+const video = document.getElementById('video');
+const videoSelect = document.getElementById('videoSelect');
+const expressionGrid = document.getElementById('expressionGrid');
+const keywordsDiv = document.getElementById('keywords');
+const annotationTable = document.getElementById('annotationTable');
+const vaCanvas = document.getElementById('vaCanvas');
+const vaText = document.getElementById('vaText');
+const markerLayer = document.getElementById('markerLayer');
+const ctx = vaCanvas.getContext('2d');
+
+let selectedExpression = null;
+let annotations = [];
+let vaCoord = { x: 0, y: 0 };
+let editIndex = null;
+
+Object.keys(emotionCategories).forEach(label => {
+  const btn = document.createElement('button');
+  btn.textContent = label;
+  btn.onclick = () => {
+    selectedExpression = { emoji: label.split(' ')[0], label: label.split(' ')[1] };
+    document.querySelectorAll('.expression-grid button').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    updateKeywordsForEmotion(label); // 動態更新關鍵字
+  };
+  expressionGrid.appendChild(btn);
+});
+videoSelect.onchange = () => {
+  const file = videoSelect.value;
+  video.src = file;
+  annotations = [];
+  annotationTable.innerHTML = '';
+  markerLayer.innerHTML = '';
+};
+function saveAnnotation() {
+  const time = parseFloat(video.currentTime.toFixed(2));
+  const text = document.getElementById('textDesc').value;
+  const checkedKeywords = [...keywordsDiv.querySelectorAll('input:checked')].map(c => c.value);
+  if (!selectedExpression) return alert('請選擇表情');
+
+  const annotation = {
+    video: videoSelect.value,
+    time,
+    expression: selectedExpression,
+    valence_arousal: vaCoord,
+    keywords: checkedKeywords,
+    description: text
+  };
+
+  if (editIndex !== null) {
+    annotations[editIndex] = annotation;
+    editIndex = null;
+    refreshTable();
+  } else {
+    annotations.push(annotation);
+    addTableRow(annotation, annotations.length - 1);
+    addMarker(time);
+  }
+
+  // ✅ 清除編輯狀態與輸入欄位
+  document.getElementById('textDesc').value = '';
+  selectedExpression = null;
+  vaCoord = { x: 0, y: 0 };
+  drawCanvas();
+  vaText.innerText = `(0, 0)`;
+
+  document.querySelectorAll('.expression-grid button').forEach(b => b.classList.remove('selected'));
+  [...keywordsDiv.querySelectorAll('input')].forEach(c => c.checked = false);
+}
+function refreshTable() {
+  annotationTable.innerHTML = '';
+  markerLayer.innerHTML = '';
+  annotations.forEach((ann, i) => {
+    addTableRow(ann, i);
+    addMarker(ann.time);
+  });
+}
+function addTableRow(ann, i) {
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td>${ann.time}</td>
+    <td>${ann.expression.emoji} ${ann.expression.label}</td>
+    <td>(${ann.valence_arousal.x}, ${ann.valence_arousal.y})</td>
+    <td>${ann.keywords.join(', ')}</td>
+    <td>${ann.description}</td>
+    <td>
+      <button onclick="editAnnotation(${i})">✏️</button>
+      <button onclick="deleteAnnotation(${i})">🗑</button>
+    </td>`;
+  annotationTable.appendChild(row);
+}
+function editAnnotation(i) {
+  const ann = annotations[i];
+  editIndex = i;
+  video.currentTime = ann.time;
+  selectedExpression = ann.expression;
+  document.getElementById('textDesc').value = ann.description;
+  vaCoord = ann.valence_arousal;
+  drawCanvas();
+  vaText.innerText = `(${vaCoord.x}, ${vaCoord.y})`;
+
+  // ✅ 還原表情選擇
+  document.querySelectorAll('.expression-grid button').forEach(b => {
+    b.classList.toggle('selected', b.textContent.includes(ann.expression.label));
+  });
+
+  // ✅ 更新細分類關鍵字
+  const labelKey = `${ann.expression.emoji} ${ann.expression.label}`;
+  updateKeywordsForEmotion(labelKey);
+
+  // ✅ 勾選對應關鍵字
+  [...keywordsDiv.querySelectorAll('input')].forEach(checkbox => {
+    checkbox.checked = ann.keywords.includes(checkbox.value);
+  });
+}
+function deleteAnnotation(i) {
+  annotations.splice(i, 1);
+  refreshTable();
+}
+function addMarker(time) {
+  const marker = document.createElement('div');
+  marker.classList.add('marker');
+  const ratio = time / video.duration;
+  marker.style.left = `${ratio * 100}%`;
+  markerLayer.appendChild(marker);
+}
+function downloadAnnotations() {
+  const blob = new Blob([JSON.stringify(annotations, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'annotations.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+function drawCanvas() {
+  ctx.clearRect(0, 0, vaCanvas.width, vaCanvas.height);
+
+  // 畫出中心十字線
+  ctx.strokeStyle = '#ccc';
+  ctx.beginPath();
+  ctx.moveTo(vaCanvas.width / 2, 0);
+  ctx.lineTo(vaCanvas.width / 2, vaCanvas.height);
+  ctx.moveTo(0, vaCanvas.height / 2);
+  ctx.lineTo(vaCanvas.width, vaCanvas.height / 2);
+  ctx.stroke();
+
+  // 畫出點
+  ctx.fillStyle = '#1a73e8';
+  ctx.beginPath();
+  ctx.arc(vaCoord.x * 100 + vaCanvas.width / 2, -vaCoord.y * 100 + vaCanvas.height / 2, 5, 0, 2 * Math.PI);
+  ctx.fill();
+
+  // 加上文字標籤
+  ctx.fillStyle = 'black';
+  ctx.font = '12px Arial';
+  ctx.fillText('-1', 10, 20); // 左上
+  //ctx.fillText('(1, 1)', vaCanvas.width - 38, 20); // 右上
+  ctx.fillText('0', 10, vaCanvas.height - 13); // 左下
+  ctx.fillText('-1', vaCanvas.width - 23, vaCanvas.height - 13); // 右下
+
+  ctx.fillText('Valence', vaCanvas.width / 2 - 20, vaCanvas.height - 10);
+  ctx.fillText('Arousal', 5, vaCanvas.height / 2 - 5);
+}
+document.querySelectorAll('.expression-grid button')[0].click();
+function updateKeywordsForEmotion(label) {
+  const keywordList = emotionCategories[label] || [];
+  keywordsDiv.innerHTML = '';
+  keywordList.forEach(kw => {
+    const checkbox = document.createElement('label');
+    checkbox.innerHTML = `<input type="checkbox" value="${kw}"> ${kw}`;
+    keywordsDiv.appendChild(checkbox);
+  });
+}
+vaCanvas.addEventListener('click', (e) => {
+  const rect = vaCanvas.getBoundingClientRect();
+  const x = e.clientX - rect.left - vaCanvas.width / 2;
+  const y = -(e.clientY - rect.top - vaCanvas.height / 2);
+  vaCoord = {
+    x: parseFloat((x / 100).toFixed(2)),
+    y: parseFloat((y / 100).toFixed(2))
+  };
+  drawCanvas();
+  vaText.innerText = `(${vaCoord.x}, ${vaCoord.y})`;
+});
+drawCanvas();
 </script>
-  <!-- RequireJS script -->
-  <script src="scripts/require.js?crc=4157109226" type="text/javascript" async data-main="scripts/museconfig.js?crc=380897831" onload="if (requirejs) requirejs.onError = function(requireType, requireModule) { if (requireType && requireType.toString && requireType.toString().indexOf && 0 <= requireType.toString().indexOf('#scripterror')) window.Muse.assets.check(); }" onerror="window.Muse.assets.check();"></script>
-   </body>
+</body>
 </html>
